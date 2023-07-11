@@ -1,13 +1,106 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+nav {
+  padding: 0px 20px
+}
+.nav-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.content {
+  min-height: calc(100vh - 120px);
+}
+.goods {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); 
+}
+.buyBtn {
+  margin-right: 10px;
+}
+.regularPrice {
+  text-decoration: line-through;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.cart {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  cursor: pointer;
+  z-index: 5;
+  padding: 1rem;
+}
+.toast-container {
+  position: fixed;
+  bottom: 95%;
+  right: 40%;
+  z-index: 7;
+  animation: alertName 500ms ease-in-out;
+}
+.orderList {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  width: 50rem;
+  max-width: 95%;
+  box-shadow: 10px 5px 5px black;
+  z-index: 6;
+  animation: show 600ms ease-in-out
+}
+.hideBasket, .orderDelete {
+  cursor: pointer;
+}
+.btn-floating {
+  margin: 2px 5px
+}
+.orderDelete {
+  margin: 5px 5px 2px 0px
+}
+.orderSpan {
+  padding-left: 20px
+}
+.submitOrder{
+  margin-top: 0px;
+  height: 30px
+}
+.collection-item {
+  display: flex;
+  justify-content: center;
+}
+@keyframes show {
+  from {
+    top: 70%;
+    opacity: 0
+  } to {
+    top: 50%;
+    opacity: 1
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@media(min-width: 767px) {
+  .cart {
+    top:  6rem;
+    bottom: unset
+  }
+} 
+
+@media(max-width: 767px) {
+  .toast-container {
+    position: fixed;
+    bottom: 95%;
+    right: 20%;
+  }
+} 
+@keyframes alertName {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0rem);
+  }
 }
